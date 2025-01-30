@@ -17,6 +17,9 @@ Conversely, the [FilterRegister](#filterregister), [FilterMessageType](#filterme
 The [`Device`](xref:Bonsai.Harp.Device) operator is the first node you will probably add to your workflow when using any Harp Device. This source is responsible for establishing a serial connection link with the device and providing an interface that can be used to send and receive messages, represented by [`HarpMessage`](xref:Bonsai.Harp.HarpMessage) objects. Messages sent from the host application into the node represent commands to be sent to the device, whereas message objects emitted by the device node represent command replies or events sent by the device to the host.
 
 > [!Note]
+> Using the high-level interface `Device` operator is the recommended way to connect to a Harp device. This operator runs an additional validation step that ensures that the device you are attempting to connect to matches the interface you are trying to use. For cases where this check is not necessary, you can use the generic Device operator, which is available in the Bonsai.Harp package.
+
+> [!Note]
 > The `Device` node also provides a default editor that allows you to configure core device settings and upload new firmware to the board in the form of `.hex` files. To open this dialog you can simply double-click the node while the workflow is not running.
 
 The current specification of the [Harp Protocol](https://harp-tech.org/About/How-HARP-works/index.html) defines three [Harp Message Types](xref:Bonsai.Harp.MessageType):
